@@ -8,31 +8,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Generar las cinco obras disponibles
+        // Crear las cinco obras disponibles
         List<Obra> obras = generarObras();
-        System.out.println("Seleccione una obra de teatro: ");
 
-        // Mostrar opciones de obras
-        for (int i = 0; i < obras.size(); i++) {
-            Obra obra = obras.get(i);
-            System.out.println((i + 1) + ". " + obra.getDia() + " - " + obra.getFecha() + " - " + obra.getHora() +
-                    " - Duración: " + obra.getDuracion() + " min - Actores: " + obra.getGrupoActores());
-        }
-
-        // Selección de obra
-        int obraSeleccionada = scanner.nextInt();
-        Obra obraElegida = obras.get(obraSeleccionada - 1);
-        System.out.println("Has seleccionado: " + obraElegida.getDia() + " - " + obraElegida.getFecha());
-
-        // Crear ubicaciones para las obras
-        Ubicacion platea = new Platea();
-        Ubicacion palcoAlto = new PalcoAlto();
-        Ubicacion palcoBajo = new PalcoBajo();
-        Ubicacion cazuela = new Cazuela();
-        Ubicacion tertulia = new Tertulia();
-        Ubicacion paraiso = new Paraiso();
-
-        // Configuración de compra
+        // Configuración de compra: primero el método de pago
         System.out.println("Seleccione el método de pago:");
         System.out.println("1. Efectivo (10% descuento)");
         System.out.println("2. Débito (Sin descuento)");
@@ -54,8 +33,33 @@ public class Main {
 
         Compra compra = new Compra(pagoStrategy);
 
-        // Interacción para seleccionar entradas
+        // Mostrar opciones de obras después de seleccionar el método de pago
         while (true) {
+            System.out.println("Seleccione las obras de teatro deseada: ");
+            for (int i = 0; i < obras.size(); i++) {
+                Obra obra = obras.get(i);
+                System.out.println((i + 1) + ". " + obra.getDia() + " - " + obra.getFecha() + " - " + obra.getHora() +
+                        " - Duración: " + obra.getDuracion() + " min - Actores: " + obra.getGrupoActores());
+            }
+
+            int obraSeleccionada = scanner.nextInt();
+            if (obraSeleccionada < 1 || obraSeleccionada > obras.size()) {
+                System.out.println("Selección inválida. Intente nuevamente.");
+                continue;
+            }
+
+            Obra obraElegida = obras.get(obraSeleccionada - 1);
+            System.out.println("Has seleccionado: " + obraElegida.getDia() + " - " + obraElegida.getFecha());
+
+            // Crear ubicaciones para las obras
+            Ubicacion platea = new Platea();
+            Ubicacion palcoAlto = new PalcoAlto();
+            Ubicacion palcoBajo = new PalcoBajo();
+            Ubicacion cazuela = new Cazuela();
+            Ubicacion tertulia = new Tertulia();
+            Ubicacion paraiso = new Paraiso();
+
+            // Seleccionar ubicación
             System.out.println("Seleccione la ubicación:");
             System.out.println("1. Platea");
             System.out.println("2. Palco Alto");
@@ -94,13 +98,14 @@ public class Main {
             if (ubicacion.hayDisponibilidad()) {
                 double precioEntrada = ubicacion.calcularPrecioFinal() + obraElegida.calcularPrecio();
                 Entrada entrada = new EntradaSimple(ubicacion, precioEntrada);
-                compra.agregarEntrada(entrada);
+                compra.agregarEntrada(entrada, obraElegida);
                 ubicacion.reservarEntrada();
                 System.out.println("Entrada agregada con éxito.");
             } else {
                 System.out.println("No hay disponibilidad para la ubicación seleccionada.");
             }
 
+            // Preguntar si se desea agregar otra entrada
             System.out.println("¿Desea agregar otra entrada? (s/n)");
             String respuesta = scanner.next();
             if (respuesta.equalsIgnoreCase("n")) {
