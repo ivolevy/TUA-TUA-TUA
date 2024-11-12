@@ -125,6 +125,7 @@ public class Main {
         double total = compra.calcularTotal();
         System.err.println("----------------------------");
         System.out.println("Gracias por su compra en Obras Tua. Su ticket ha sido generado.");
+        System.out.println("Número de ticket: " + compra.getNumeroFactura());
         System.out.println("Medio de pago: " + metodoPagoTexto);
         System.out.println("Total a pagar: $" + total);
         System.err.println("----------------------------");
