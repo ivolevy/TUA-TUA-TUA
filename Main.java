@@ -12,10 +12,12 @@ public class Main {
         List<Obra> obras = generarObras();
 
         // Configuración de compra: primero el método de pago
+        System.err.println("----------------------------");
         System.out.println("Seleccione el método de pago:");
         System.out.println("1. Efectivo (10% descuento)");
         System.out.println("2. Débito (Sin descuento)");
-        System.out.println("3. Crédito (con recargo)");
+        System.out.println("3. Crédito (con recargo: (2=6%) - (3=12%) - (6=20%) )");
+        System.err.println("----------------------------");
 
         int metodoPago = scanner.nextInt();
         String metodoPagoTexto = obtenerMetodoPagoTexto(metodoPago);
@@ -26,7 +28,9 @@ public class Main {
         } else if (metodoPago == 2) {
             pagoStrategy = new PagoDebito();
         } else {
+            System.err.println("----------------------------");
             System.out.println("Seleccione la cantidad de cuotas (2, 3 o 6):");
+            System.err.println("----------------------------");
             int cuotas = scanner.nextInt();
             pagoStrategy = new PagoCredito(cuotas);
         }
@@ -35,13 +39,14 @@ public class Main {
 
         // Mostrar opciones de obras después de seleccionar el método de pago
         while (true) {
+            System.err.println("----------------------------");
             System.out.println("Seleccione las obras de teatro deseada: ");
             for (int i = 0; i < obras.size(); i++) {
                 Obra obra = obras.get(i);
                 System.out.println((i + 1) + ". " + obra.getDia() + " - " + obra.getFecha() + " - " + obra.getHora() +
                         " - Duración: " + obra.getDuracion() + " min - Actores: " + obra.getGrupoActores());
             }
-
+            System.err.println("----------------------------");
             int obraSeleccionada = scanner.nextInt();
             if (obraSeleccionada < 1 || obraSeleccionada > obras.size()) {
                 System.out.println("Selección inválida. Intente nuevamente.");
@@ -60,6 +65,7 @@ public class Main {
             Ubicacion paraiso = new Paraiso();
 
             // Seleccionar ubicación
+            System.err.println("----------------------------");
             System.out.println("Seleccione la ubicación:");
             System.out.println("1. Platea");
             System.out.println("2. Palco Alto");
@@ -67,6 +73,7 @@ public class Main {
             System.out.println("4. Cazuela");
             System.out.println("5. Tertulia");
             System.out.println("6. Paraíso");
+            System.err.println("----------------------------");
 
             int ubicacionSeleccionada = scanner.nextInt();
             Ubicacion ubicacion = null;
@@ -107,6 +114,7 @@ public class Main {
 
             // Preguntar si se desea agregar otra entrada
             System.out.println("¿Desea agregar otra entrada? (s/n)");
+            System.err.println("----------------------------");
             String respuesta = scanner.next();
             if (respuesta.equalsIgnoreCase("n")) {
                 break;
@@ -115,10 +123,11 @@ public class Main {
 
         // Mostrar total y finalizar compra
         double total = compra.calcularTotal();
+        System.err.println("----------------------------");
+        System.out.println("Gracias por su compra en Obras Tua. Su ticket ha sido generado.");
         System.out.println("Medio de pago: " + metodoPagoTexto);
         System.out.println("Total a pagar: $" + total);
-        System.out.println("Gracias por su compra. Su ticket ha sido generado.");
-
+        System.err.println("----------------------------");
         scanner.close();
     }
 
