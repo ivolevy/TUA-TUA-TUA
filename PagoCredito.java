@@ -1,4 +1,3 @@
-
 public class PagoCredito implements PagoStrategy {
     private int cuotas;
 

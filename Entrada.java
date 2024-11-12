@@ -1,4 +1,3 @@
-
 public abstract class Entrada {
     protected Ubicacion ubicacion;
     protected double precioBase;

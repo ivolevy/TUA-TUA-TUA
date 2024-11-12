@@ -1,4 +1,3 @@
-
 public class Ubicacion {
     @SuppressWarnings("unused")
     private String nombre;

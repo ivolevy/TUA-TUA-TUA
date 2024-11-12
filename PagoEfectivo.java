@@ -1,4 +1,3 @@
-
 public class PagoEfectivo implements PagoStrategy {
     @Override
     public double calcularMontoFinal(double monto) {
