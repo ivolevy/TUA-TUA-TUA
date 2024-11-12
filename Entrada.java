@@ -1,7 +1,7 @@
 public abstract class Entrada {
     protected Ubicacion ubicacion;
     protected double precioBase;
-    protected static Obra obra; // Nuevo atributo
+    protected static Obra obra;
 
     @SuppressWarnings("static-access")
     public Entrada(Ubicacion ubicacion, double precioBase, Obra obra) {

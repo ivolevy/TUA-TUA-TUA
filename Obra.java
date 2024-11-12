@@ -6,7 +6,7 @@ public class Obra {
     private String dia;
     private LocalDate fecha;
     private LocalTime hora;
-    private int duracion; // en minutos
+    private int duracion; // En minutos
     private List<String> grupoActores;
 
     public Obra(String dia, LocalDate fecha, LocalTime hora, int duracion, List<String> grupoActores) {

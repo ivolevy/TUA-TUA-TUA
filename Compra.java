@@ -18,11 +18,11 @@ public class Compra {
     }
 
     private String generarNumeroFactura() {
-        // Obtener la fecha y hora actual en un formato específico
+        // Obtenemos la fecha y hora actual en un formato específico
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
         String fechaHora = LocalDateTime.now().format(formatter);
         
-        // Combinar el contador con la fecha y hora para generar un ID más largo
+        // Combinamos el contador con la fecha y hora para generar un ID
         String numeroFactura = "TCKT-" + fechaHora + "-" + String.format("%03d", contadorFactura++);
         
         return numeroFactura;

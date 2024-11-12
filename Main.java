@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Crear las cinco obras disponibles
+        // Se crean las cinco obras disponibles
         List<Obra> obras = generarObras();
 
         // Configuración de compra: primero el método de pago
@@ -37,7 +37,7 @@ public class Main {
 
         Compra compra = new Compra(pagoStrategy);
 
-        // Mostrar opciones de obras después de seleccionar el método de pago
+        // Se muestran opciones de obras después de seleccionar el método de pago
         while (true) {
             System.err.println("----------------------------");
             System.out.println("Seleccione las obras de teatro deseada: ");
@@ -56,7 +56,7 @@ public class Main {
             Obra obraElegida = obras.get(obraSeleccionada - 1);
             System.out.println("Has seleccionado: " + obraElegida.getDia() + " - " + obraElegida.getFecha());
 
-            // Crear ubicaciones para las obras
+            // Se crean ubicaciones para las obras
             Ubicacion platea = new Platea();
             Ubicacion palcoAlto = new PalcoAlto();
             Ubicacion palcoBajo = new PalcoBajo();
