@@ -21,11 +21,11 @@ public class Main {
         obras.add(new Obra("Jueves", LocalDate.of(2024, 11, 14), LocalTime.of(20, 0), 90, 
             List.of("Santi Tomasini (policia)", "Marosek Linyera"), List.of(platea, palcoBajo, cazuela, paraiso)));
         obras.add(new Obra("Viernes", LocalDate.of(2024, 11, 15), LocalTime.of(21, 0), 110, 
-            List.of("Artu Egui", "Moli Luñez"), List.of(platea, palcoAlto, tertulia, paraiso)));
+            List.of("Artu Egui", "Jaz Martínez de Stella"), List.of(platea, palcoAlto, tertulia, paraiso)));
         obras.add(new Obra("Sábado", LocalDate.of(2024, 11, 16), LocalTime.of(18, 30), 130, 
-            List.of("Tomi Faure", "Dembele al arcoooooo GOL"), List.of(palcoBajo, cazuela, tertulia, paraiso)));
+            List.of("Guada Navos de Faure", "Dembele al arcoooooo GOL"), List.of(palcoBajo, cazuela, tertulia, paraiso)));
         obras.add(new Obra("Domingo", LocalDate.of(2024, 11, 17), LocalTime.of(17, 0), 95, 
-            List.of("Bambino Pons", "Pipper Perri"), List.of(platea, tertulia, cazuela, paraiso)));
+            List.of("Bambino Pons", "Freijo (al final no renuncié)"), List.of(platea, tertulia, cazuela, paraiso)));
 
         // Configuración de compra: primero el método de pago
         System.err.println("---------------------------");
