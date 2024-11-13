@@ -21,9 +21,9 @@ public class Main {
         obras.add(new Obra("Viernes", LocalDate.of(2024, 11, 15), LocalTime.of(21, 0), 110, 
             List.of("Artu Egui", "Jaz Martínez de Stella"), List.of(platea, palcoAlto, tertulia, paraiso)));
         obras.add(new Obra("Sábado", LocalDate.of(2024, 11, 16), LocalTime.of(18, 30), 130, 
-            List.of("Combo sasha cande", "Dembele al arcoooooo GOL"), List.of(palcoBajo, cazuela, tertulia, paraiso)));
+            List.of("Ramiro Cubria ", "Llados"), List.of(palcoBajo, cazuela, tertulia, paraiso)));
         obras.add(new Obra("Domingo", LocalDate.of(2024, 11, 17), LocalTime.of(17, 0), 95, 
-            List.of("Bambino Pons", "Freijo (al final no renuncié)"), List.of(platea, tertulia, cazuela, paraiso)));
+            List.of("Bambino Pons", "Dolores de levy"), List.of(platea, tertulia, cazuela, paraiso)));
 
         System.err.println("---------------------------");
         System.out.println("Seleccione el método de pago:");
@@ -97,7 +97,7 @@ public class Main {
 
         double total = compra.calcularTotal();
         System.err.println("----- Ticket generado -----");
-        System.err.println("Gracias por su compra en obras Tua-Faure & asociados");
+        System.err.println("Gracias por su compra en obras Faure & asociados");
         System.out.println("Método de pago seleccionado: " + metodoPagoSeleccionado);
         System.out.println("Su total a pagar es: $" + total);
         scanner.close();
