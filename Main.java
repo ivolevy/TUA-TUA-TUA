@@ -6,7 +6,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Se crean las 6 ubicaciones disponibles
         Ubicacion platea = new Platea();
         Ubicacion palcoAlto = new PalcoAlto();
         Ubicacion palcoBajo = new PalcoBajo();
@@ -14,7 +13,6 @@ public class Main {
         Ubicacion tertulia = new Tertulia();
         Ubicacion paraiso = new Paraiso();
 
-        // Se crean las obras, cada una con sus propias ubicaciones
         List<Obra> obras = new ArrayList<>();
         obras.add(new Obra("Miércoles", LocalDate.of(2024, 11, 13), LocalTime.of(19, 0), 120, 
             List.of("David Tua", "Palentin Veñalva (tasty)"), List.of(platea, palcoAlto, cazuela, tertulia, paraiso)));
@@ -27,7 +25,6 @@ public class Main {
         obras.add(new Obra("Domingo", LocalDate.of(2024, 11, 17), LocalTime.of(17, 0), 95, 
             List.of("Bambino Pons", "Freijo (al final no renuncié)"), List.of(platea, tertulia, cazuela, paraiso)));
 
-        // Configuración de compra: primero el método de pago
         System.err.println("---------------------------");
         System.out.println("Seleccione el método de pago:");
         System.out.println("1. Efectivo (10% descuento)");
@@ -40,7 +37,6 @@ public class Main {
 
         Compra compra = new Compra(pagoStrategy);
 
-        // Selección de obras
         while (true) {
             System.err.println("---------------------------");
             System.out.println("Seleccione las obras de teatro deseada:");
@@ -54,7 +50,6 @@ public class Main {
             System.err.println("---------------------------");
             System.out.println("Has seleccionado: " + obraElegida.getDia() + " - " + obraElegida.getFecha());
 
-            // Selección de ubicación
             System.err.println("---------------------------");
             System.out.println("Seleccione la ubicación:");
             System.out.println("1. Platea");
@@ -76,13 +71,11 @@ public class Main {
                 default: System.out.println("Opción inválida"); return;
             }
 
-            // Verificar disponibilidad y agregar entrada
             if (obraElegida.hayDisponibilidadEnUbicacion(ubicacion)) {
                 double precioEntrada = ubicacion.calcularPrecioFinal() + obraElegida.calcularPrecio();
                 Entrada entrada = new EntradaSimple(ubicacion, precioEntrada);
                 compra.agregarEntrada(entrada, obraElegida);
 
-                // Reserva la entrada y reduce la capacidad disponible
                 if (obraElegida.reservarEntradaEnUbicacion(ubicacion)) {
                     System.out.println("Entrada agregada con éxito.");
                 } else {
@@ -101,7 +94,6 @@ public class Main {
             }
         }
 
-        // Mostrar total y finalizar compra con el método de pago
         double total = compra.calcularTotal();
         System.err.println("----- Ticket generado -----");
         System.err.println("Gracias por su compra en obras Tua-Faure & asociados");

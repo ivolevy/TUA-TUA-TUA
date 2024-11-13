@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Compra {
-    private static int contadorFactura = 1; // Contador para generar números únicos de factura
-    private String numeroFactura; // Número de factura personalizado
+    private static int contadorFactura = 1;
+    private String numeroFactura;
     private List<Entrada> entradas;
     private List<Obra> obras;
     private PagoStrategy metodoPago;
@@ -18,11 +18,9 @@ public class Compra {
     }
 
     private String generarNumeroFactura() {
-        // Obtenemos la fecha y hora actual en un formato específico
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
         String fechaHora = LocalDateTime.now().format(formatter);
         
-        // Combinamos el contador con la fecha y hora para generar un ID
         String numeroFactura = "TCKT-" + fechaHora + "-" + String.format("%03d", contadorFactura++);
         
         return numeroFactura;

@@ -6,9 +6,9 @@ public class Obra {
     private String dia;
     private LocalDate fecha;
     private LocalTime hora;
-    private int duracion; // En minutos
+    private int duracion; 
     private List<String> grupoActores;
-    private List<Ubicacion> ubicacionesDisponibles; // Lista de ubicaciones para cada obra
+    private List<Ubicacion> ubicacionesDisponibles; 
 
     public Obra(String dia, LocalDate fecha, LocalTime hora, int duracion, List<String> grupoActores, List<Ubicacion> ubicacionesDisponibles) {
         this.dia = dia;
@@ -27,15 +27,13 @@ public class Obra {
     public List<Ubicacion> getUbicacionesDisponibles() { return ubicacionesDisponibles; }
 
     public double calcularPrecio() {
-        return 100 + duracion * 2; // Ejemplo de cálculo
+        return 100 + duracion * 2; 
     }
 
-    // Verifica si la obra tiene disponibilidad en una ubicación específica
     public boolean hayDisponibilidadEnUbicacion(Ubicacion ubicacion) {
         return ubicacion.hayDisponibilidad();
     }
 
-    // Reserva una entrada en la ubicación de la obra
     public boolean reservarEntradaEnUbicacion(Ubicacion ubicacion) {
         return ubicacion.reservarEntrada();
     }
